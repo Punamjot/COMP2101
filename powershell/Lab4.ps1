@@ -78,9 +78,10 @@ Get-WmiObject -class win32_Videocontroller |
 foreach {
           New-Object -TypeName psobject -Property @{
                      Description = $_.Description
-                     Vendor = $_.VideoArchitecture
+                     Manufacturer = $_.AdapterCompatibility
+                     VideoArchitecture = $_.VideoArchitecture
                      CurrentScreenResolution = [string]$_.CurrentHorizontalResolution + "x" + $_.CurrentVerticalResolution
-  } | Format-List Description, Vendor, CurrentScreenResolution
+  } | Format-List Description, Manufacturer, VideoArchitecture, CurrentScreenResolution
   }
   }
 VideoController
